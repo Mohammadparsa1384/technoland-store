@@ -36,18 +36,13 @@ class Color(models.Model):
 class Product(models.Model):
     title = models.CharField(max_length=50,verbose_name="عنوان")
     price = models.PositiveBigIntegerField(verbose_name="قیمت")
-
-    
     category = models.ManyToManyField(Category,related_name="products",verbose_name="دسته بندی")
-    
     description = models.TextField(verbose_name="توضیحات")
     image = models.ImageField(upload_to="products",verbose_name="عکس محصول")
     quantity = models.IntegerField(default=1,verbose_name="تعداد")
     colors = models.ManyToManyField(Color,related_name="products",verbose_name="رنگ")
     slug = models.SlugField(blank=True, null=True)
-    
     rate = models.IntegerField(blank=True, null=True,verbose_name="امتیاز")
-    
     created = jmodels.jDateTimeField(auto_now_add=True,null=True,verbose_name="زمان ایجاد")
     updated = jmodels.jDateTimeField(auto_now=True,null=True,verbose_name="زمان آپدیت")
     objects = jmodels.jManager()
