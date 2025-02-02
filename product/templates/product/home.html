@@ -4,6 +4,37 @@
 
 {% block main %}
 
+<style>
+
+
+.view-all-container {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.view-all-button {
+  background-color: #FF9800; /* رنگ دکمه */
+  color: white;
+  padding: 12px 25px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 30px;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.view-all-button:hover {
+  background-color: #F57C00;
+  transform: scale(1.05);
+  color: white;
+}
+
+.view-all-button:active {
+  transform: scale(0.95); /* کاهش سایز دکمه هنگام کلیک */
+}
+
+</style>
+
 <!-- Slider Section -->
 <section id="slider" class="mt-3">
     <div class="container">
@@ -187,6 +218,8 @@
                     </div>
                 </div>
                 <!-- /Product Box -->
+
+
             </div>
 
             {% endif %}
@@ -195,11 +228,13 @@
 
 
             
-
-            
         </div>
 
         
+        
+        <div class="view-all-container">
+            <a href="{% url "product:filter" %}" class="view-all-button">مشاهده تمامی محصولات</a>
+        </div>
         
     </div>
 </section>
